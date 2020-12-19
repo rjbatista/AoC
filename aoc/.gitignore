@@ -1,0 +1,4 @@
+.venv
+.vscode
+aoc.code-workspace
+__pycache__
