@@ -79,7 +79,7 @@ for _ in range(6):
     current_state = do_cycle(current_state)
 answer = sum([1 for state in current_state.values() if state])
 print("Part 1 =", answer)
-assert answer == 265
+assert answer == 265 # check with accepted answer
 
 ########
 # PART 2
@@ -166,4 +166,4 @@ for _ in range(6):
     current_state = do_cycle_p2(current_state)
 answer = sum([1 for state in current_state.values() if state])
 print("Part 1 =", answer)
-assert answer == 1936
+assert answer == 1936 # check with accepted answer

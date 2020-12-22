@@ -59,7 +59,7 @@ assert get_ticket_scanning_error_rate(rules, nearby) == 71
 rules, ticket, nearby = read_file("input.txt")
 answer = get_ticket_scanning_error_rate(rules, nearby)
 print("Part 1 =", answer)
-assert answer == 32835
+assert answer == 32835 # check with accepted answer
 
 
 ########
@@ -106,4 +106,4 @@ orders = get_order(*read_file("input.txt"))
 ticket_name_value = [(rule_name, ticket[idx]) for idx, rule_name in enumerate(orders) if rule_name.startswith("departure")]
 answer = reduce(lambda x, y : x * y, [value for _, value in ticket_name_value])
 print("Part 2 =", answer)
-assert answer == 514662805187
+assert answer == 514662805187 # check with accepted answer

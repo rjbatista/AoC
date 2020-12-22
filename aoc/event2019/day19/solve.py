@@ -59,7 +59,7 @@ def get_area(side = 50):
 
 answer = sum([width for x, width in get_area() if x != None])
 print("Part 1 =", answer)
-assert answer == 203
+assert answer == 203 # check with accepted answer
 
 ########
 # PART 2
@@ -80,4 +80,4 @@ def get_top_right_in_beam(square_size = 100):
 x, y = get_top_right_in_beam()
 answer = 10000 * x + y
 print("Part 2 =", 10000 * x + y)
-assert answer == 8771057
+assert answer == 8771057 # check with accepted answer

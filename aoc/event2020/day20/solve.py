@@ -12,7 +12,7 @@ tileMap.read()
 corner_ids = tileMap.corner_ids
 answer = reduce(mul, map(int, corner_ids))
 print("Part 1 =", answer)
-assert answer == 29125888761511
+assert answer == 29125888761511 # check with accepted answer
 
 ########
 # PART 2
@@ -79,5 +79,5 @@ for row in data:
         row >>= 1
 
 print("Part 2 =", answer)
-assert answer == 2219
+assert answer == 2219 # check with accepted answer
 

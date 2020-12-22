@@ -44,7 +44,7 @@ assert count_ingredients_without_allergens(*read("example1.txt")) == 5
 all_allegerns, ingredients_count = read("input.txt")
 answer = count_ingredients_without_allergens(all_allegerns, ingredients_count)
 print("Part 1 =", answer)
-assert answer == 1930
+assert answer == 1930 # check with accepted answer
 
 ########
 # PART 2
@@ -86,4 +86,4 @@ assert canonical(get_dangerous_list(read("example1.txt")[0])) == "mxmxvkd,sqjhc,
 
 answer = canonical(get_dangerous_list(all_allegerns))
 print("Part 2 =", answer)
-assert answer == "spcqmzfg,rpf,dzqlq,pflk,bltrbvz,xbdh,spql,bltzkxx"
+assert answer == "spcqmzfg,rpf,dzqlq,pflk,bltrbvz,xbdh,spql,bltzkxx" # check with accepted answer

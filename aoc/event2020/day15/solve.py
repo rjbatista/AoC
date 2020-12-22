@@ -64,4 +64,4 @@ assert answer == 610 # check with accepted answer
 
 answer = get_after_rounds([9,12,1,4,17,0,18], 30000000)
 print("Part 2 =", answer)
-assert answer == 1407
+assert answer == 1407 # check with accepted answer

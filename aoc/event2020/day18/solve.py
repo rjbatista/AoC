@@ -46,7 +46,7 @@ with open("event2020/day18/input.txt", "r") as file:
 
 answer = sum(lines)
 print("Part 1 =", answer)
-assert answer == 14208061823964
+assert answer == 14208061823964 # check with accepted answer
 
 ########
 # PART 2
@@ -99,4 +99,4 @@ with open("event2020/day18/input.txt", "r") as file:
 
 answer = sum(lines)
 print("Part 2 =", answer)
-assert answer == 320536571743074
+assert answer == 320536571743074 # check with accepted answer

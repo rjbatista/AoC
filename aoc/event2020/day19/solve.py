@@ -74,7 +74,7 @@ rules, messages = read_file("input.txt")
 validator = regex.compile("^" + build_validator(rules, 0) + "$")
 answer = sum([1 for message in messages if validator.match(message)])
 print("Part 1 =", answer)
-assert answer == 272
+assert answer == 272 # check with accepted answer
 
 ########
 # PART 2
@@ -99,4 +99,4 @@ update_rules(rules)
 validator = regex.compile("^" + build_validator(rules, 0) + "$")
 answer = sum([1 for message in messages if validator.match(message)])
 print("Part 2 =", answer)
-assert answer == 374
+assert answer == 374 # check with accepted answer
