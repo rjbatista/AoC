@@ -48,10 +48,8 @@ assert answer == 32677 # check with accepted answer
 def is_player1_winner(player1, player2):
     already_played = set()
 
-    r = 1
     while True:
-        r+=1
-        key = ','.join(map(str, player1)) + '-' + ','.join(map(str, player2))
+        key = str(player1) + str(player2)
 
         # if there was a previous round in this game that had exactly the same cards in the same order in the same players' decks, the game instantly ends in a win for player 1.
         if key in already_played:
@@ -86,6 +84,7 @@ def get_winning_game_p2(player1, player2):
 assert get_winning_score(get_winning_game_p2(*read_file("example1.txt"))) == 291
 
 players = read_file("input.txt")
+#elapsed = timeit.timeit(lambda: cProfile.run("answer = get_winning_score(get_winning_game_p2(*players))"), number = 1)
 answer = get_winning_score(get_winning_game_p2(*players))
 print("Part 2 =", answer)
 assert answer == 33661 # check with accepted answer
