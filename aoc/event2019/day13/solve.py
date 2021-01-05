@@ -6,10 +6,8 @@ from threading import Thread
 ########
 # PART 1
 
-with open("event2019/day13/input.txt", "r") as file:
-    code = [int(x) for x in file.readline().split(",")]
-
-computer = Computer_v4(code)
+computer = Computer_v4()
+computer.load_code("event2019/day13/input.txt")
 computer.run()
 output = computer.get_output()
 screen = {(x, y): t for x, y, t in (zip(*(iter(output),) * 3))}
@@ -73,7 +71,8 @@ def get_update_screen_processor():
     return update_screen
 
 # setup the brain on a different thread
-computer = Computer_v4(code)
+computer = Computer_v4()
+computer.load_code("event2019/day13/input.txt")
 computer.set_memory_value(0, 2)
 computer_in = Queue()
 computer_out = Queue()

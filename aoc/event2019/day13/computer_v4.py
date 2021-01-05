@@ -1,7 +1,7 @@
 from event2019.day9.computer_v3 import Computer_v3
 
 class Computer_v4(Computer_v3):
-    def __init__(self, list):
+    def __init__(self, list = []):
         super().__init__(list)
         self._is_waiting_for_input = False
         self._input_processor = None

@@ -6,11 +6,9 @@ from time import sleep
 ########
 # PART 1
 
-with open("event2019/day15/input.txt", "r") as file:
-    code = [int(x) for x in file.readline().split(",")]
-
 # setup the brain on a different thread
-computer = Computer_v4(code)
+computer = Computer_v4()
+computer.load_code("event2019/day15/input.txt")
 computer_in = Queue()
 computer_out = Queue()
 t = Thread(target=computer.run, daemon=True, args=(computer_in, computer_out))

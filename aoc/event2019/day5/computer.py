@@ -17,6 +17,7 @@ class Computer(object):
     computer class
     """
     def __init__(self, list = []):
+        self._orig_code = list
         self._ip = 0
         self._memory = list[:]
         self._input = None
@@ -34,11 +35,25 @@ class Computer(object):
             '99': { 'name': "halt", 'args': 0, 'method': self.opcode_99 }
         }
 
+
+    def load_code(self, fn):
+        with open(fn, "r") as file:
+            self._orig_code = [int(x) for x in file.readline().split(",")]
+        
+        self.reload_code()
+    
+
+    def reload_code(self):
+        self._memory = self._orig_code[:]
+
+
     def set_debug(self, debug):
         self._debug = debug
 
+
     def update_memory(self, list):
         self._memory = list[:]
+
 
     def get_debug_param(self, value, mode):
         ret=''
@@ -47,6 +62,7 @@ class Computer(object):
         if (mode != Mode.IMMEDIATE): ret += ']'
 
         return ret
+
 
     def get_args(self, input_argc, output_argc, mode):
         in_args, out_args = [], []
@@ -109,6 +125,7 @@ class Computer(object):
 
         self._ip += 4
 
+
     def microcode_jmp(self, func, mode):
         args, _ = self.get_args(2, 0, mode)
 
@@ -117,17 +134,20 @@ class Computer(object):
         else:
             self._ip += 3
 
+
     def opcode_01(self, mode):
         """
         Opcode 1 adds together numbers read from two positions and stores the result in a third position. The three integers immediately after the opcode tell you these three positions - the first two indicate the positions from which you should read the input values, and the third indicates the position at which the output should be stored.
         """
         self.microcode_3_args(lambda x, y: x + y, mode)
 
+
     def opcode_02(self, mode):
         """
         Opcode 2 works exactly like opcode 1, except it multiplies the two inputs instead of adding them. Again, the three integers after the opcode indicate where the inputs and outputs are, not their values.
         """
         self.microcode_3_args(lambda x, y: x * y, mode)
+
 
     def opcode_03(self, mode):
         """
@@ -158,11 +178,13 @@ class Computer(object):
         if (self._debug):
             print(Colors.COMMENT, "\t# value =",  value, end = "")
 
+
     def opcode_05(self, mode):
         """
         Opcode 5 is jump-if-true: if the first parameter is non-zero, it sets the instruction pointer to the value from the second parameter. Otherwise, it does nothing.
         """
         self.microcode_jmp(lambda x : x != 0, mode)
+
 
     def opcode_06(self, mode):
         """
@@ -170,11 +192,13 @@ class Computer(object):
         """
         self.microcode_jmp(lambda x : x == 0, mode)
 
+
     def opcode_07(self, mode):
         """
         Opcode 7 is less than: if the first parameter is less than the second parameter, it stores 1 in the position given by the third parameter. Otherwise, it stores 0.
         """
         self.microcode_3_args(lambda x, y: 1 if x < y else 0, mode)
+
 
     def opcode_08(self, mode):
         """
@@ -182,11 +206,13 @@ class Computer(object):
         """
         self.microcode_3_args(lambda x, y: 1 if x == y else 0, mode)
 
+
     def opcode_99(self, mode):
         """
         Halts
         """
         self._ip = -1
+
 
     def run_instruction(self):
         instruction = '%05d' % self._memory[self._ip]
@@ -207,6 +233,7 @@ class Computer(object):
         if (self._debug):
             print(Colors.RESET)
 
+
     def run(self, input = [], output = []):
         self._ip = 0
         self._input = input
@@ -216,11 +243,14 @@ class Computer(object):
         
         return self._output
 
+
     def input(self):
         return self._input.pop(0)
 
+
     def output(self, val):
         self._output.append(val)
+
 
     def get_output(self):
         return self._output

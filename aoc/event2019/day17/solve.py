@@ -4,12 +4,11 @@ from event2019.day13.computer_v4 import Computer_v4
 # PART 1
 directions = [(0, -1), (1, 0), (0, 1), (-1, 0)]
 
-with open("event2019/day17/input.txt", "r") as file:
-    code = [int(x) for x in file.readline().split(",")]
 
-def read_map(code):
+def read_map():
     # setup the brain on a different thread
-    computer = Computer_v4(code)
+    computer = Computer_v4()
+    computer.load_code("event2019/day17/input.txt")
     computer.run()
     return map(chr, computer.get_output())
 
@@ -108,7 +107,7 @@ area, robot_pos, robot_direction = get_map(out)
 interceptions, _ = transverse(area, robot_pos, robot_direction)
 assert get_alignment_parameters(interceptions) == 76
 
-out = read_map(code)
+out = read_map()
 area, robot_pos, robot_direction = get_map(out)
 interceptions, path = transverse(area, robot_pos, robot_direction)
 answer = get_alignment_parameters(interceptions)
@@ -191,7 +190,8 @@ inp += [ord(x) for x in ','.join([str(x) for x in pattern_B]) + '\n']
 inp += [ord(x) for x in ','.join([str(x) for x in pattern_C]) + '\n']
 inp += [ord(x) for x in "n\n"]
 
-computer = Computer_v4(code)
+computer = Computer_v4()
+computer.load_code("event2019/day17/input.txt")
 computer.set_memory_value(0, 2)
 computer.run(inp, out)
 

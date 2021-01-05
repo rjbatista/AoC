@@ -3,13 +3,13 @@ from event2019.day13.computer_v4 import Computer_v4
 ########
 # PART 1
 
-with open("event2019/day19/input.txt", "r") as file:
-    code = [int(x) for x in file.readline().split(",")]
-
 computer = Computer_v4([])
+computer.load_code("event2019/day19/input.txt")
+
+
 def get_value(x, y):
     out = []
-    computer.update_memory(code)
+    computer.reload_code()
     computer.run([x, y], out)
 
     return out[0]
