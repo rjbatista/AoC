@@ -49,8 +49,7 @@ def get_area(side = 50):
                     width = x - row_min_x
                     break
 
-                if x == side:
-                    raise RuntimeError("unexpected!")
+                assert x != side
 
         area += [(row_min_x, width)]
     

@@ -36,7 +36,7 @@ class Computer(object):
                 if m:
                     self.code.append((getattr(Computer, "opcode_" + m.group(1)), int(m.group(2))))
                 else:
-                    raise RuntimeError("parse error")
+                    raise RuntimeError("invalid input " + line)
 
     def disassembly(self):
         for ip, (instruction, arg) in enumerate(self.code):
