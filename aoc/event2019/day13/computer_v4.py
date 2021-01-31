@@ -29,7 +29,13 @@ class Computer_v4(Computer_v3):
             super().output(val)
 
     def set_input_processor(self, func):
+        '''
+        setup a function that receives the original input function (to call optionally) and returns the input value
+        '''
         self._input_processor = func
 
     def set_output_processor(self, func):
+        '''
+        setup a function that receives the original output value and returns the output value (or None if no output is to be given)
+        '''
         self._output_processor = func

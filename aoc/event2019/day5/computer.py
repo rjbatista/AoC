@@ -36,10 +36,15 @@ class Computer(object):
         }
 
 
-    def load_code(self, fn):
+    def read_code(fn):
         with open(fn, "r") as file:
-            self._orig_code = [int(x) for x in file.readline().split(",")]
-        
+            code = [int(x) for x in file.readline().split(",")]
+
+        return code
+    
+
+    def load_code(self, fn):
+        self._orig_code = Computer.read_code(fn)
         self.reload_code()
     
 
@@ -207,11 +212,18 @@ class Computer(object):
         self.microcode_3_args(lambda x, y: 1 if x == y else 0, mode)
 
 
-    def opcode_99(self, mode):
+    def opcode_99(self, _):
+        """
+        Opcode 99: halt
+        """
+        self.halt()
+
+
+    def halt(self):
         """
         Halts
         """
-        self._ip = -1
+        self._ip = -99
 
 
     def run_instruction(self):
