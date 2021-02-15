@@ -3,7 +3,7 @@ import re
 ########
 # PART 1
 def get_passports(fn):
-    with open("event2020/day4/" + fn, "r") as input:
+    with open("event2020/day04/" + fn, "r") as input:
         i = 0
         passports = [{}]
         for line in input:

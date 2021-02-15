@@ -66,7 +66,7 @@ def get_distance_from(fn):
     ship = (0, 0)
     waypoint = (10, -1)
     for command, value in get_commands(fn):
-        print(command, value, ship, waypoint)
+        #print(command, value, ship, waypoint)
         if command == 'N':
             waypoint = waypoint[0], waypoint[1] - value
         elif command == 'S':
@@ -82,7 +82,7 @@ def get_distance_from(fn):
         elif command == 'F':
             ship = ship[0] + waypoint[0] * value, ship[1] + waypoint[1] * value
 
-        print("\t=", ship, waypoint)
+        #print("\t=", ship, waypoint)
    
     return ship
 

@@ -8,7 +8,7 @@ def is_valid(min_ch, max_ch, ch, pw):
    return min_ch <= count <= max_ch
 
 def get_passwords(fn):
-    with open("event2020/day2/" + fn, "r") as input:
+    with open("event2020/day02/" + fn, "r") as input:
         pattern = re.compile(r"^(\d+)-(\d+) (\w): (\w+)$")
         for line in input:
             m = re.match(pattern, line)

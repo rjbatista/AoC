@@ -6,7 +6,7 @@ from operator import mul
 def get_map(fn):
     ret = []
     width = 0
-    with open("event2020/day3/" + fn, "r") as input:
+    with open("event2020/day03/" + fn, "r") as input:
         for line in input:
             val = 0
             width = len(line) - 1

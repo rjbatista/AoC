@@ -6,7 +6,7 @@ import re
 def get_rules(fn):
     can_be_inside_of = {}
     bags_contained = {}
-    with open("event2020/day7/" + fn, "r") as input:
+    with open("event2020/day07/" + fn, "r") as input:
         linePattern = re.compile(r"^(\w+ \w+) bags contain (no other bags|(?: ?\d+ \w+ \w+ bags?,?)+)\.$")
         insidePattern = re.compile(r" ?(\d+) (\w+ \w+) bags?,?")
 

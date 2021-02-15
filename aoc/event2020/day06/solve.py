@@ -2,7 +2,7 @@
 # PART 1
 
 def get_answers(fn):
-    with open("event2020/day6/" + fn, "r") as input:
+    with open("event2020/day06/" + fn, "r") as input:
         i = 0
         answers = [(0, {})]
         group_count = 0

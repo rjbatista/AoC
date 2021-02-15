@@ -19,7 +19,7 @@ assert to_seat("FFFBBBFRRR") == (14, 7, 119)
 assert to_seat("BBFFBBFRLL") == (102, 4, 820)
 
 
-with open("event2020/day5/input.txt", "r") as input:
+with open("event2020/day05/input.txt", "r") as input:
     seats = [to_seat(line) for line in input]
 
 

@@ -15,7 +15,7 @@ def get_answer(answer):
 
 assert get_answer(select_combinations([1721,979,366,299,675,1456], 2020)) == 514579
 
-with open("event2020/day1/input.txt", "r") as input:
+with open("event2020/day01/input.txt", "r") as input:
     list = [int(x) for x in input]
 
 combination = select_combinations(list, 2020)

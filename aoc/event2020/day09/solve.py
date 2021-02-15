@@ -4,7 +4,7 @@ from itertools import combinations
 # PART 1
 
 def get_numbers(fn):
-    with open("event2020/day9/" + fn, "r") as file:
+    with open("event2020/day09/" + fn, "r") as file:
         for line in file:
             yield int(line[:-1])
 

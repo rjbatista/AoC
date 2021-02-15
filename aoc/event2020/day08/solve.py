@@ -1,4 +1,4 @@
-from event2020.day8.computer import Computer, Debugger, ComputerInterruptedError
+from event2020.day08.computer import Computer, Debugger, ComputerInterruptedError
 
 ########
 # PART 1
@@ -27,12 +27,12 @@ class TraceInstructions(Debugger):
 computer = Computer()
 debugger = TraceInstructions(computer)
 #computer.set_debug(True)
-computer.load("event2020/day8/example1.txt")
+computer.load("event2020/day08/example1.txt")
 computer.run()
 
 assert computer.acc == 5
 
-computer.load("event2020/day8/input.txt")
+computer.load("event2020/day08/input.txt")
 computer.run()
 
 answer = computer.acc
@@ -72,10 +72,10 @@ def fix_code():
     return None
 
 
-computer.load("event2020/day8/example1.txt")
+computer.load("event2020/day08/example1.txt")
 assert fix_code() == 8
 
-computer.load("event2020/day8/input.txt")
+computer.load("event2020/day08/input.txt")
 
 answer = fix_code()
 print("Part 2 =", answer)
