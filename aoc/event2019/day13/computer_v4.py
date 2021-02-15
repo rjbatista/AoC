@@ -1,4 +1,4 @@
-from event2019.day9.computer_v3 import Computer_v3
+from event2019.day09.computer_v3 import Computer_v3
 
 class Computer_v4(Computer_v3):
     def __init__(self, list = []):

@@ -1,5 +1,5 @@
-from event2019.day5.computer import Mode, Colors
-from event2019.day7.computer_v2 import Computer_v2
+from event2019.day05.computer import Mode, Colors
+from event2019.day07.computer_v2 import Computer_v2
 
 class Computer_v3(Computer_v2):
     def __init__(self, list = []) -> None:

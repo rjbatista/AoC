@@ -6,7 +6,7 @@ from math import floor
 def process_input(input):
     return [x for x in [floor(int(fuel) / 3) - 2 for fuel in input] if x > 0]
 
-with open("event2019/day1/input.txt", "r") as input:
+with open("event2019/day01/input.txt", "r") as input:
     answer = sum(process_input(input))
     print("Part 1 =", answer)
     assert answer == 3275518 # check with accepted answer
@@ -14,7 +14,7 @@ with open("event2019/day1/input.txt", "r") as input:
 ########
 # PART 2
 
-with open("event2019/day1/input.txt", "r") as first_input:
+with open("event2019/day01/input.txt", "r") as first_input:
     total = 0
     input = first_input
 

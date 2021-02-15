@@ -5,7 +5,7 @@ import re
 def get_system_from_file(fn):
     system = {}
     pattern = re.compile(r"^(?P<what>\w+)\)(?P<who>\w+)$")
-    with open("event2019/day6/" + fn, "r") as input:
+    with open("event2019/day06/" + fn, "r") as input:
         for line in input:
             m = pattern.match(line)
             if m:

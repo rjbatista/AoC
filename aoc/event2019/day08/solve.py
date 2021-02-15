@@ -25,7 +25,7 @@ assert get_check_digit(get_layer_with_less_digit(layers, 0)) == 1
 layers = get_layers([int(ch) for ch in "123256789012"], 3, 2)
 assert get_check_digit(get_layer_with_less_digit(layers, 0)) == 2
 
-with open("event2019/day8/input.txt", "r") as input:
+with open("event2019/day08/input.txt", "r") as input:
     data = [int(ch) for line in input for ch in line[:-1]]
 
 layers = get_layers(data)
@@ -46,17 +46,15 @@ def decode_image(layers, width = 25, height = 6):
     for _ in range(height):
         for _ in range(width):
             ch = image.pop(0)
-            print(' ' if ch == 0 else 'X', end = "")
+            print(' ' if ch == 0 else '#', end = "")
         print()
 
 layers = get_layers([int(ch) for ch in "0222112222120000"], 2, 2)
 #decode_image(layers, 2, 2)
 
-with open("event2019/day8/input.txt", "r") as input:
+with open("event2019/day08/input.txt", "r") as input:
     data = [int(ch) for line in input for ch in line[:-1]]
 
 layers = get_layers(data)
 print("Part 2 =")
 decode_image(layers)
-
-#assert answer == 77500 # check with accepted answer

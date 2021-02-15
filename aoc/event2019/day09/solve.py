@@ -1,4 +1,4 @@
-from event2019.day9.computer_v3 import Computer_v3
+from event2019.day09.computer_v3 import Computer_v3
 
 ########
 # PART 1
@@ -8,7 +8,7 @@ assert Computer_v3(list).run([], []) == list
 assert len(str(Computer_v3([1102,34915192,34915192,7,4,7,99,0]).run([], [])[0])) == 16
 assert Computer_v3([104,1125899906842624,99]).run([], [])[0] == 1125899906842624
 
-with open("event2019/day9/input.txt", "r") as input:
+with open("event2019/day09/input.txt", "r") as input:
     code = [int(x) for x in input.readline().split(",")]
 
 answer = Computer_v3(code).run([1], [])[0]

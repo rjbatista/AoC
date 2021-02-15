@@ -41,7 +41,7 @@ class Computer(object):
         return self._memory[position]
 
 
-with open("event2019/day2/input.txt", "r") as input:
+with open("event2019/day02/input.txt", "r") as input:
     list = [int(x) for x in input.readline().split(",")]
 
 # replace position 1 with the value 12 
@@ -59,7 +59,7 @@ assert answer == 3790689 # check with accepted answer
 ########
 # PART 2
 
-with open("event2019/day2/input.txt", "r") as input:
+with open("event2019/day02/input.txt", "r") as input:
     list = [int(x) for x in input.readline().split(",")]
 
 for noun in range(100):

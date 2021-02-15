@@ -1,4 +1,4 @@
-from event2019.day9.computer_v3 import Computer_v3
+from event2019.day09.computer_v3 import Computer_v3
 from queue import Queue
 from threading import Thread
 

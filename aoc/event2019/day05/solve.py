@@ -1,4 +1,4 @@
-from event2019.day5.computer import Computer
+from event2019.day05.computer import Computer
 
 ########
 # PART 1
@@ -11,7 +11,7 @@ if (__name__ == '__main__'):
     assert Computer([3,3,1105,-1,9,1101,0,0,12,4,12,99,1]).run([0], [])[-1] == 0
     assert Computer([3,3,1105,-1,9,1101,0,0,12,4,12,99,1]).run([33], [])[-1] == 1
 
-    with open("event2019/day5/input.txt", "r") as input:
+    with open("event2019/day05/input.txt", "r") as input:
         code = [int(x) for x in input.readline().split(",")]
 
     computer = Computer(code)

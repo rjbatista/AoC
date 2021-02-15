@@ -1,5 +1,5 @@
 from queue import Queue
-from event2019.day5.computer import Computer, Mode, Colors
+from event2019.day05.computer import Computer, Mode, Colors
 from queue import Queue
 
 class Computer_v2(Computer):

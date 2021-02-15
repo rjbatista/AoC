@@ -122,7 +122,7 @@ assert wiremap.get_min_manhattan_distance() == 135
 # part 1
 wiremap = WireMap()
 id = 0
-with open("event2019/day3/input.txt", "r") as input:
+with open("event2019/day03/input.txt", "r") as input:
     for wire in input:
         id += 1
         wiremap.define_wire(id, wire)
