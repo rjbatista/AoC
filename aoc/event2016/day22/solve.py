@@ -224,5 +224,3 @@ def try_this(graph, target, w, h):
 answer = try_this(graph, (mx, 0), mx + 1, my + 1)
 print("Part 2 =", answer)
 assert answer == 236 # check with accepted answer
-
-
