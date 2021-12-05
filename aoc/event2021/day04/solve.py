@@ -113,4 +113,4 @@ assert play_to_lose(ex1_numbers, ex1_boards) == 1924
 
 answer = play_to_lose(inp_numbers, inp_boards)
 print("Part 2 =", answer)
-#assert answer == 4125600 # check with accepted answer
+assert answer == 3178 # check with accepted answer
