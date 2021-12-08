@@ -28,8 +28,10 @@ assert answer == 356922 # check with accepted answer
 ########
 # PART 2
 
+# using sum(1..n) = n*(n + 1) / 2
+
 def calculate_cost_to_align_p2(positions, desired_pos):
-    return sum([sum(range(abs(x - desired_pos) + 1)) for x in positions])
+    return sum([int(abs(x - desired_pos) * (abs(x - desired_pos) + 1) / 2) for x in positions])
 
 
 assert min_cost_to_align(ex1, calculate_cost_to_align_p2) == 168
