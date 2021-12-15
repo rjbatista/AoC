@@ -69,4 +69,4 @@ assert run_actions_with_aim(ex1) == 900
 
 answer = run_actions_with_aim(inp)
 print("Part 2 =", answer)
-#assert answer == 1789 # check with accepted answer
+assert answer == 2073416724 # check with accepted answer
