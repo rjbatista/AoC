@@ -13,7 +13,7 @@ class Cpu:
 
     def hlf(self, r):
         '''sets register r to half its current value, then continues with the next instruction.'''
-        setattr(self, r, int(getattr(self, r) / 2))
+        setattr(self, r, getattr(self, r) // 2)
         self.ip += 1
 
 

@@ -82,9 +82,9 @@ assert score_missing("]]}}]}]}>") == 995444
 assert score_missing("])}>") == 294
 
 ex1_missing_scores = sorted([score_missing(missing) for _, missing in [score_corrupted(line) for line in ex1] if missing])
-assert ex1_missing_scores[int(len(ex1_missing_scores) / 2)] == 288957
+assert ex1_missing_scores[len(ex1_missing_scores) // 2] == 288957
 
 missing_scores = sorted([score_missing(missing) for _, missing in [score_corrupted(line) for line in inp] if missing])
-answer = missing_scores[int(len(missing_scores) / 2)]
+answer = missing_scores[len(missing_scores) // 2]
 print("Part 2 =", answer)
 assert answer == 2802519786 # check with accepted answer

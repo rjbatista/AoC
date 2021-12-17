@@ -24,7 +24,7 @@ base = 252533
 mod = 33554393
 diag = row + col - 1
 
-exp = int(diag * (diag - 1) / 2 + col - 1)
+exp = diag * (diag - 1) // 2 + col - 1
 
 answer = modexp(base, exp, mod) * firstcode % mod
 print("Part 1 =", answer)

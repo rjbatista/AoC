@@ -36,7 +36,7 @@ assert answer == 1044 # check with accepted answer
 
 def sum_significant_digits_halfway(digits):
     """ calculate the sum of the digits that match the halfway around """
-    halfway = int(len(digits) / 2)
+    halfway = len(digits) // 2
     return sum([int(x) for x, y in zip(digits, cycle(digits[halfway:] + digits[:halfway])) if x == y])
 
 
