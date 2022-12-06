@@ -1,5 +1,6 @@
 """ Advent of code 2017 - day 15 """
 """ implemented it first using generator, but it was slower than the iteractive version """
+""" pypy runs this instantly...! """
 
 ########
 # PART 1
