@@ -1,43 +1,23 @@
+""" Advent of code 2017 - day 10 """
+from pathlib import Path
 from functools import reduce
 from operator import mul
+from event2017.day10.knot_hash import knot_hash_round, knot_hash
 
 ########
 # PART 1
 
 def read(filename):
-    with open("event2017/day10/" + filename, "r") as file:
+    """ Read the input """
+    with Path(__file__).parent.joinpath(filename).open("r") as file:
         return list(map(int, file.readline().strip().split(',')))
-
-
-def knot_hash_round(lengths : list, list_size = 256, rounds = 1):
-    inp = list(range(list_size))
-
-    pos = 0
-    skip = 0
-
-    for _ in range(rounds):
-        for length in lengths:
-
-            end_pos = pos + length
-            if end_pos > list_size:
-                selected = inp[pos:] + inp[:end_pos % list_size]
-            else:
-                selected = inp[pos:end_pos]
-
-            for p in range(length):
-                inp[(pos + p) % list_size] = selected[length - p - 1]
-
-            pos = (pos + length + skip) % list_size
-            skip += 1
-
-    return inp
 
 
 assert reduce(mul, knot_hash_round([3, 4, 1, 5], 5)[0:2]) == 12
 
 
-lengths = read("input.txt")
-answer = reduce(mul, knot_hash_round(lengths)[0:2])
+inp = read("input.txt")
+answer = reduce(mul, knot_hash_round(inp)[0:2])
 print("Part 1 =", answer)
 assert answer == 11413 # check with accepted answer
 
@@ -46,11 +26,13 @@ assert answer == 11413 # check with accepted answer
 # PART 2
 
 def read_as_ascii(filename):
-    with open("event2017/day10/" + filename, "r") as file:
+    """ Read the input as ascii """
+    with Path(__file__).parent.joinpath(filename).open("r") as file:
         return file.readline().strip()
 
 
 def dense_hash(sparse_hash):
+    """ Perform the dense hash """
     hash = [0] * 16
 
     for idx, v in enumerate(sparse_hash):
@@ -59,8 +41,9 @@ def dense_hash(sparse_hash):
     return ''.join(["%02x" % x for x in hash])
 
 
-def knot_hash(inp : str):
-    inp_list = list(map(ord, inp)) + [ 17, 31, 73, 47, 23 ]
+def knot_hash(input_str : str):
+    """ Return the know hash of the input  """
+    inp_list = list(map(ord, input_str)) + [ 17, 31, 73, 47, 23 ]
 
     return dense_hash(knot_hash_round(inp_list, rounds = 64))
 
