@@ -94,7 +94,7 @@ def find_cycle(input_str, moves):
 
 def run_moves_for(input_str, moves, num: int = 1000000000):
     """ Repeat the moves <num> times """
-    
+
     # find a cycle?
     cycle = find_cycle(input_str, moves)
 
@@ -106,6 +106,7 @@ def run_moves_for(input_str, moves, num: int = 1000000000):
         cur = run_moves(cur, moves)
 
     return ''.join(cur)
+
 
 answer = run_moves_for(create_program(16), inp_moves)
 print("Part 2 =", answer)
