@@ -91,7 +91,7 @@ def read(filename):
     with Path(__file__).parent.joinpath(filename).open("r") as file:
         for line in file:
             row = []
-            for height in line[:-1]:
+            for height in line.strip():
                 row.append(Tree(int(height)))
 
             grid.append(row)

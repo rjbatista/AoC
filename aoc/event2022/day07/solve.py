@@ -78,8 +78,10 @@ class FilesystemNode:
         with Path(__file__).parent.joinpath(filename).open("r") as file:
             current_node = root_node
             for line in file.readlines():
+                line = line.strip()
+
                 if line.startswith('$ cd'):
-                    curdir = line[5:-1]
+                    curdir = line[5:]
 
                     if curdir == '/':
                         current_node = root_node
@@ -88,10 +90,10 @@ class FilesystemNode:
                     else:
                         current_node = current_node.change_dir(curdir)
 
-                elif line.startswith('$ ls'):
+                elif line == '$ ls':
                     pass
                 else:
-                    entry = line[:-1].split(' ')
+                    entry = line.split(' ')
 
                     # add entry to current directory
                     current_node.add(entry[1], size = int(entry[0]) if entry[0] != 'dir' else None)
