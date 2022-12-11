@@ -1,4 +1,4 @@
-""" Advent of code 2022 - day XX """
+""" Advent of code 2022 - day 10 """
 from pathlib import Path
 import re
 
