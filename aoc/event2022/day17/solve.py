@@ -1,4 +1,4 @@
-""" Advent of code 2022 - day XX """
+""" Advent of code 2022 - day 17 """
 from pathlib import Path
 from itertools import cycle
 
