@@ -1,15 +1,15 @@
-""" Advent of code 2022 - day XX """
+""" Advent of code 2023 - day XX """
 
 ########
 # PART 1
 
 #ANSWER = 
 #print("Part 1 =", ANSWER)
-#assert ANSWER == x # check with accepted answer
+#assert ANSWER == x  # check with accepted answer
 
 ########
 # PART 2
 
 #ANSWER = 
 #print("Part 2 =", ANSWER)
-#assert ANSWER == x # check with accepted answer
+#assert ANSWER == x  # check with accepted answer
