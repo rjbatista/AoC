@@ -6,8 +6,8 @@ import re
 ########
 # PART 1
 
-GameSet = dict[str, int]
-Game = tuple[int, list[GameSet]]
+type GameSet = dict[str, int]
+type Game = tuple[int, list[GameSet]]
 
 
 def read(filename: str) -> list[Game]:

@@ -5,10 +5,10 @@ from pathlib import Path
 ########
 # PART 1
 
-Coord = tuple[int, int]
-Symbols = dict[Coord, str]
-Numbers = dict[Coord, int]
-Schematic = tuple[Coord, Symbols, Numbers]
+type Coord = tuple[int, int]
+type Symbols = dict[Coord, str]
+type Numbers = dict[Coord, int]
+type Schematic = tuple[Coord, Symbols, Numbers]
 
 
 def read(filename: str) -> Schematic:
@@ -87,7 +87,7 @@ assert ANSWER == 540131  # check with accepted answer
 ########
 # PART 2
 
-Gear = list[int]
+type Gear = list[int]
 
 
 def find_potential_gears(coord: Coord, val: int, schematic: Schematic) -> list[Coord]:
