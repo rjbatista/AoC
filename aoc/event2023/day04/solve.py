@@ -53,10 +53,8 @@ assert ANSWER == 25571  # check with accepted answer
 def count_total_cards(cards: Cards) -> int:
     """ Count the total number of cards """
     count = defaultdict(lambda: 1)
-    todo = list(range(1, len(cards) + 1))
 
-    while todo:
-        card = todo.pop(0)
+    for card in range(1, len(cards) + 1):
         no = count[card]
         winning, have = cards[card]
 
