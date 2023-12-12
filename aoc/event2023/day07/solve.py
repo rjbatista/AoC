@@ -68,7 +68,7 @@ class Hand:
         return hand_type
 
 
-def read(filename: str) -> list[tuple[str, int]]:
+def read(filename: str) -> list[Hand]:
     """ Read the file """
 
     with Path(__file__).parent.joinpath(filename).open("r", encoding="ascii") as file:
