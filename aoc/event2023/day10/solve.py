@@ -113,7 +113,7 @@ def draw_field(field: Field, start: Coord):
     │ │
     └─┘
     """
-    (len_x, len_y), field_map = field
+    (width, height), field_map = field
     chars = {Connection.NORTH.value + Connection.SOUTH.value: '│',
              Connection.EAST.value + Connection.WEST.value: '─',
              Connection.NORTH.value + Connection.EAST.value: '└',
@@ -121,8 +121,8 @@ def draw_field(field: Field, start: Coord):
              Connection.EAST.value + Connection.SOUTH.value: '┌',
              Connection.WEST.value + Connection.SOUTH.value: '┐'}
 
-    for y in range(len_y):
-        for x in range(len_x):
+    for y in range(height):
+        for x in range(width):
             if (x, y) == start:
                 print('\033[0;42m', end="")
             print(chars.get(field_map.get((x, y), '0'), '.'), end="")
@@ -183,14 +183,14 @@ assert ANSWER == 6956  # check with accepted answer
 
 def find_loop_area(field: Field, loop: set[Coord]) -> int:
     """ Find the area inside the loop """
-    (len_x, len_y), field_map = field
+    (width, height), field_map = field
 
     horizontal_area = set()
-    for y in range(len_y):
+    for y in range(height):
         inside_x_north = False
         inside_x_south = False
 
-        for x in range(len_x):
+        for x in range(width):
             val = field_map.get((x, y), 0)
             if (x, y) in loop:
                 if Connection.NORTH.is_connected_from(val):
@@ -201,10 +201,10 @@ def find_loop_area(field: Field, loop: set[Coord]) -> int:
                 horizontal_area.add((x, y))
 
     area = 0
-    for x in range(len_x):
+    for x in range(width):
         inside_x_east = False
         inside_x_west = False
-        for y in range(len_y):
+        for y in range(height):
             val = field_map.get((x, y), 0)
             if (x, y) in loop:
                 if Connection.EAST.is_connected_from(val):

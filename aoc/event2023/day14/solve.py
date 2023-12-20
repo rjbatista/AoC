@@ -27,10 +27,10 @@ def read(filename: str) -> Platform:
 
 def print_platform(platform: Platform) -> None:
     """ Prints the platform """
-    len_x, len_y, area = platform
+    width, height, area = platform
 
-    for y in range(len_y):
-        for x in range(len_x):
+    for y in range(height):
+        for x in range(width):
             ch = area.get((x, y), '.')
 
             print(ch, end="")
@@ -40,7 +40,7 @@ def print_platform(platform: Platform) -> None:
 
 def tilt(platform: Platform, dx: int, dy: int) -> None:
     """ Tilts the platform in the specified direction """
-    len_x, len_y, area = platform
+    width, height, area = platform
 
     if dy:
         def sort_key(coord: Coord):
@@ -56,9 +56,9 @@ def tilt(platform: Platform, dx: int, dy: int) -> None:
         while True:
             nx, ny = x + dx, y + dy
 
-            if not 0 <= nx < len_x:
+            if not 0 <= nx < width:
                 break
-            if not 0 <= ny < len_y:
+            if not 0 <= ny < height:
                 break
             if area.get((nx, ny), '.') != '.':
                 break
@@ -99,7 +99,7 @@ def do_cycle(platform: Platform):
 def find_cycle(platform: Platform) -> tuple[int, int]:
     """ Repeat the tilts until a cycle is found, returning the cycle start and length """
     known = {}
-    len_x, len_y, area = platform
+    width, height, area = platform
     area = area.copy()
 
     count = 0
@@ -111,7 +111,7 @@ def find_cycle(platform: Platform) -> tuple[int, int]:
 
         known[key] = count
         count += 1
-        do_cycle((len_x, len_y, area))
+        do_cycle((width, height, area))
 
     return known[key], count - known[key]
 

@@ -14,13 +14,13 @@ class ExpandedUniverse():
     """ Class representing an expanding universe """
 
     galaxies: dict[int, Coord] = field(init=False)
-    len_x: int = 0
-    len_y: int = 0
+    width: int = 0
+    height: int = 0
     extra_per_space: int = 1
 
     _original_galaxies: dict[int, Coord] = field(init=False)
-    _len_x: int = None
-    _len_y: int = None
+    _width: int = None
+    _height: int = None
 
     def read(self, filename: str) -> None:
         """ Read the universe from a file """
@@ -40,8 +40,8 @@ class ExpandedUniverse():
                         self._original_galaxies[galaxy_id] = x, y
                         galaxy_id += 1
 
-            self._len_x = max_x + 1
-            self._len_y = max_y + 1
+            self._width = max_x + 1
+            self._height = max_y + 1
 
         self._expand()
 
@@ -57,10 +57,10 @@ class ExpandedUniverse():
         horizontal_expansions = set()
         vertical_expansions = set()
 
-        empty_cols = [True] * self._len_x
-        for y in range(self._len_y):
+        empty_cols = [True] * self._width
+        for y in range(self._height):
             empty_row = True
-            for x in range(self._len_x):
+            for x in range(self._width):
                 if (x, y) in galaxy_positions:
                     empty_row = False
                     empty_cols[x] = False
@@ -80,15 +80,15 @@ class ExpandedUniverse():
             self.galaxies[galaxy_id] = (x + x_expansions * self.extra_per_space,
                                         y + y_expansions * self.extra_per_space)
 
-        self.len_x = self._len_x + len(vertical_expansions) * self.extra_per_space
-        self.len_y = self._len_y + len(horizontal_expansions) * self.extra_per_space
+        self.width = self._width + len(vertical_expansions) * self.extra_per_space
+        self.height = self._height + len(horizontal_expansions) * self.extra_per_space
 
     def draw(self) -> None:
         """ Draws the expanded map """
         galaxy_positions = set(self.galaxies.values())
 
-        for y in range(self.len_y):
-            for x in range(self.len_x):
+        for y in range(self.height):
+            for x in range(self.width):
                 if (x, y) in galaxy_positions:
                     print("#", end="")
                 else:
