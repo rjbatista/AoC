@@ -5,8 +5,9 @@ The solutions for each day are designed to be independent without any set of _sh
 
 Participated in 2015 and 2016. Couldn't really participate on 2017, 2018 and 2019. Got back again on 2020 - solving both 2020 and 2019... will eventually get to 2018 and 2017 (whenever the chance) :)
 
-...now solving 2023
+...now solving 2024
 
-#### TODO after 2023
+#### TODO after 2024
 * Recover my 2015 and 2016 solutions and add them here
+* Finish 2023
 * Begin 2018
