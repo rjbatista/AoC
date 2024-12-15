@@ -98,13 +98,13 @@ def simulate_till_easter_egg(robots: list[Robot], width=101, height=103) -> list
         if sec < width:
             ent = calculate_entropy([x for (x, _), _ in new_robots], width)
 
-        # calculate the distribuition of x with lowest entrophy (most likely an image and not random)
+        # calculate the distribuition of x with lowest entropy (most likely an image and not random)
         min_x = min(min_x, (ent, sec))
 
         if sec < height:
             ent = calculate_entropy([y for (_, y), _ in new_robots], height)
 
-        # calculate the distribuition of y with lowest entrophy (most likely an image and not random)
+        # calculate the distribuition of y with lowest entropy (most likely an image and not random)
         min_y = min(min_y, (ent, sec))
 
     _, min_x = min_x
