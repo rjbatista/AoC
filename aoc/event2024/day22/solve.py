@@ -1,4 +1,4 @@
-""" Advent of code 2023 - day XX """
+""" Advent of code 2024 - day 22 """
 
 from collections import defaultdict
 from pathlib import Path
