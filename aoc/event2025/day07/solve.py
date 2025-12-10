@@ -1,5 +1,6 @@
 """ Advent of code 2025 - day 07 """
 
+import functools
 from pathlib import Path
 
 ########
@@ -69,25 +70,19 @@ assert ANSWER == 1524  # check with accepted answer
 
 def count_timelines(diagram: set[Coord], height: int, start: Coord) -> int:
     """ count the times the beam is split """
+    @functools.cache
     def walk(pos: Coord) -> int:
         x, y = pos
         while y < height:
-            if (x, y) in known:
-                return known[x, y]
 
             if (x, y) in diagram:
                 # found splitter
-                v = walk((x - 1, y)) + walk((x + 1, y))
-
-                known[x, y] = v
-
-                return v
+                return walk((x - 1, y)) + walk((x + 1, y))
 
             y += 1
 
         return 1
 
-    known = {}
     return walk(start)
 
 
